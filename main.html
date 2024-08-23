@@ -3,60 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe</title>
+    <title>Table Row Adder</title>
     <style>
-        .container {
-            text-align: center;
-            margin-top: 50px;
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 8px;
+            text-align: left;
         }
-        .board {
-            display: none;
-            margin: 20px auto;
-            width: 300px;
-            height: 300px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(3, 1fr);
-            gap: 5px;
+        th, td {
+            width: 150px;
         }
-        .board div {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100px;
-            height: 100px;
-            font-size: 2em;
-            border: 2px solid #333;
+        #sampleTable {
+            margin: 20px 0;
+        }
+        #addRowBtn {
+            padding: 10px 15px;
             cursor: pointer;
-        }
-        .message {
-            margin-top: 20px;
-            font-size: 1.5em;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Tic Tac Toe</h1>
-        <div class="input-container">
-            <input type="text" id="player-1" placeholder="Enter Player 1 Name">
-            <input type="text" id="player-2" placeholder="Enter Player 2 Name">
-            <button id="submit">Submit</button>
-        </div>
-        <div class="board" id="board">
-            <div id="1"></div>
-            <div id="2"></div>
-            <div id="3"></div>
-            <div id="4"></div>
-            <div id="5"></div>
-            <div id="6"></div>
-            <div id="7"></div>
-            <div id="8"></div>
-            <div id="9"></div>
-        </div>
-        <div class="message" id="message"></div>
-    </div>
 
-    <script src="script.js"></script>
+    <h1>Table Row Adder</h1>
+
+    <!-- Sample Table -->
+    <table id="sampleTable">
+        <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+        </tr>
+        <tr>
+            <td>Row 1 Cell 1</td>
+            <td>Row 1 Cell 2</td>
+        </tr>
+    </table>
+
+    <!-- Button to add a new row -->
+    <input type="button" id="addRowBtn" value="Add New Row">
+
+    <script>
+        // JavaScript to add a new row to the table
+        document.getElementById('addRowBtn').addEventListener('click', function() {
+            const table = document.getElementById('sampleTable');
+            const newRow = table.insertRow();
+
+            const newCell1 = newRow.insertCell(0);
+            const newCell2 = newRow.insertCell(1);
+
+            newCell1.textContent = 'New Cell1';
+            newCell2.textContent = 'New Cell2';
+        });
+    </script>
+
 </body>
 </html>
