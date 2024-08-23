@@ -3,58 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Table Row Adder</title>
+    <title>Create Table</title>
     <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
         table, th, td {
             border: 1px solid black;
-            border-collapse: collapse;
+        }
+        th, td {
             padding: 8px;
             text-align: left;
         }
-        th, td {
-            width: 150px;
-        }
-        #sampleTable {
-            margin: 20px 0;
-        }
-        #addRowBtn {
-            padding: 10px 15px;
-            cursor: pointer;
+        #addRowButton {
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-
-    <h1>Table Row Adder</h1>
-
-    <!-- Sample Table -->
+    <h1>Create Table App</h1>
+    
     <table id="sampleTable">
         <tr>
-            <th>Header 1</th>
-            <th>Header 2</th>
+            <th>Column 1</th>
+            <th>Column 2</th>
         </tr>
-        <tr>
-            <td>Row 1 Cell 1</td>
-            <td>Row 1 Cell 2</td>
-        </tr>
+        <!-- Existing rows can go here -->
     </table>
-
-    <!-- Button to add a new row -->
-    <input type="button" id="addRowBtn" value="Add New Row">
+    
+    <input type="button" id="addRowButton" value="Add New Row" onclick="addRow()">
 
     <script>
-        // JavaScript to add a new row to the table
-        document.getElementById('addRowBtn').addEventListener('click', function() {
-            const table = document.getElementById('sampleTable');
-            const newRow = table.insertRow();
-
-            const newCell1 = newRow.insertCell(0);
-            const newCell2 = newRow.insertCell(1);
-
-            newCell1.textContent = 'New Cell1';
-            newCell2.textContent = 'New Cell2';
-        });
+        function addRow() {
+            // Get the table element
+            var table = document.getElementById("sampleTable");
+            
+            // Create a new row element
+            var newRow = table.insertRow(-1); // Add to the end of the table
+            
+            // Insert cells in the new row
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            
+            // Set text for the cells
+            cell1.textContent = 'New Cell1';
+            cell2.textContent = 'New Cell2';
+        }
     </script>
-
 </body>
 </html>
